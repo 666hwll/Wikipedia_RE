@@ -16,35 +16,7 @@ API_URL = 'http://en.wikipedia.org/w/api.php'
 RATE_LIMIT = False
 RATE_LIMIT_MIN_WAIT = None
 RATE_LIMIT_LAST_CALL = None
-USER_AGENT = 'wikipedia (https://github.com/goldsmith/Wikipedia/)'
-
-
-def set_lang(prefix):
-  '''
-  Change the language of the API being requested.
-  Set `prefix` to one of the two letter prefixes found on the `list of all Wikipedias <http://meta.wikimedia.org/wiki/List_of_Wikipedias>`_.
-
-  After setting the language, the cache for ``search``, ``suggest``, and ``summary`` will be cleared.
-
-  .. note:: Make sure you search for page titles in the language that you have set.
-  '''
-  global API_URL
-  API_URL = 'http://' + prefix.lower() + '.wikipedia.org/w/api.php'
-
-  for cached_func in (search, suggest, summary):
-    cached_func.clear_cache()
-
-
-def set_user_agent(user_agent_string):
-  '''
-  Set the User-Agent string to be used for all requests.
-
-  Arguments:
-
-  * user_agent_string - (string) a string specifying the User-Agent header
-  '''
-  global USER_AGENT
-  USER_AGENT = user_agent_string
+USER_AGENT = 'wikipedia (https://github.com/666hwll/Wikipedia_RE/)'
 
 
 def set_rate_limiting(rate_limit, min_wait=timedelta(milliseconds=50)):
@@ -677,28 +649,6 @@ class WikipediaPage(object):
     return self.content[index:next_index].lstrip("=").strip()
 
 
-@cache
-def languages():
-  '''
-  List all the currently supported language prefixes (usually ISO language code).
-
-  Can be inputted to `set_lang` to change the Mediawiki that `wikipedia` requests
-  results from.
-
-  Returns: dict of <prefix>: <local_lang_name> pairs. To get just a list of prefixes,
-  use `wikipedia.languages().keys()`.
-  '''
-  response = _wiki_request({
-    'meta': 'siteinfo',
-    'siprop': 'languages'
-  })
-
-  languages = response['query']['languages']
-
-  return {
-    lang['code']: lang['*']
-    for lang in languages
-  }
 
 def _wiki_request(params):
   '''

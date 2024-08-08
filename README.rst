@@ -1,4 +1,4 @@
-Wikipedia
+Wikipedia RE
 =========
 
 .. image:: https://travis-ci.org/goldsmith/Wikipedia.png?branch=master
@@ -11,8 +11,8 @@ Wikipedia
     :target: https://pypi.python.org/pypi/wikipedia/
     :alt: License
 
-**Wikipedia** is a Python library that makes it easy to access and parse
-data from Wikipedia.
+**Wikipedia RE** is a Python library that makes it easy to access and parse
+data from Wikipedia - but less bloated than the normal wikipedia package.
 
 Search Wikipedia, get article summaries, get data like links and images
 from a page, and more. Wikipedia wraps the `MediaWiki
@@ -38,30 +38,26 @@ Wikipedia data, not getting it.
   >>> ny.links[0]
   # u'1790 United States Census'
 
-  >>> wikipedia.set_lang("fr")
   >>> wikipedia.summary("Facebook", sentences=1)
-  # Facebook est un service de réseautage social en ligne sur Internet permettant d'y publier des informations (photographies, liens, textes, etc.) en contrôlant leur visibilité par différentes catégories de personnes.
+  # Facebook is an online social networking service on the Internet that allows users to publish information (photographs, links, texts, etc.) while controlling their visibility by different categories of people.
 
 Note: this library was designed for ease of use and simplicity, not for advanced use. If you plan on doing serious scraping or automated requests, please use `Pywikipediabot <http://www.mediawiki.org/wiki/Manual:Pywikipediabot>`__ (or one of the other more advanced `Python MediaWiki API wrappers <http://en.wikipedia.org/wiki/Wikipedia:Creating_a_bot#Python>`__), which has a larger API, rate limiting, and other features so we can be considerate of the MediaWiki infrastructure.
 
 Installation
 ------------
 
-To install Wikipedia, simply run:
+To install Wikipedia RE, simply run:
 
 ::
 
-  $ pip install wikipedia
+  $ git clone https://github.com/666hwll/Wikipedia_RE/
 
-Wikipedia is compatible with Python 2.6+ (2.7+ to run unittest discover) and Python 3.3+.
+Wikipedia RE is compatible with Python 2.6+ (2.7+ to run unittest discover) and Python 3.3+.
 
 Documentation
 -------------
 
-Read the docs at https://wikipedia.readthedocs.org/en/latest/.
-
--  `Quickstart <https://wikipedia.readthedocs.org/en/latest/quickstart.html>`__
--  `Full API <https://wikipedia.readthedocs.org/en/latest/code.html>`__
+Read the source code.
 
 To run tests, clone the `repository on GitHub <https://github.com/goldsmith/Wikipedia>`__, then run:
 
@@ -81,16 +77,10 @@ To build the documentation yourself, after installing requirements.txt, run:
   $ cd docs/
   $ make html
 
-License
--------
-
-MIT licensed. See the `LICENSE
-file <https://github.com/goldsmith/Wikipedia/blob/master/LICENSE>`__ for
-full details.
 
 Credits
 -------
-
+-  @goldsmith for the original
 -  `wiki-api <https://github.com/richardasaurus/wiki-api>`__ by
    @richardasaurus for inspiration
 -  @nmoroze and @themichaelyang for feedback and suggestions
